@@ -17,12 +17,21 @@
             "tsConfig": "src/tsconfig.app.json",
             "polyfills": "src/polyfills.ts",
             "assets": [
-              "src/assets",
-              "src/favicon.ico"
+              "src/assets",{
+                "glob": "**/*",
+                "input": "node_modules/ngx-auth-firebaseui/assets/",
+                "output": "./assets/"
+                },
+              "src/favicon.ico",{
+                "glob": "**/*",
+                "input": "node_modules/mat-firebase-upload/assets",
+                "output": "./assets/fileicons"
+              }
             ],
             "styles": [
               "node_modules/perfect-scrollbar/css/perfect-scrollbar.css",
-              "src/assets/scss/material-dashboard.scss",
+              "src/assets/scss/material-dashboard.scss","node_modules/material-design-icons/iconfont/material-icons.css",
+              
               "src/assets/css/demo.css"
             ],
             "scripts": [

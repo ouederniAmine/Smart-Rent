@@ -4,24 +4,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { environment } from '../environments/environment';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
+import { NgxAuthFirebaseUIModule } from 'ngx-auth-firebaseui';
+
 
 import { AppComponent } from './app.component';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TableListComponent } from './table-list/table-list.component';
-import { TypographyComponent } from './typography/typography.component';
-import { IconsComponent } from './icons/icons.component';
-import { MapsComponent } from './maps/maps.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { UpgradeComponent } from './upgrade/upgrade.component';
 import {
   AgmCoreModule
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 @NgModule({
   imports: [
@@ -32,13 +28,19 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
+    NgxAuthFirebaseUIModule.forRoot({
+      apiKey: 'AIzaSyAt0NWnRg8NE1xRD6FJpvr9Ul8tf_LLr-w',
+      authDomain: 'smarthome-45590.firebaseapp.com',
+      databaseURL: 'https://smarthome-45590-default-rtdb.europe-west1.firebasedatabase.app',
+      projectId: 'smarthome-45590',
+      storageBucket: 'smarthome-45590.appspot.com',
+      messagingSenderId: '1028100313929'
+  }),
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
+    SignInComponent,
 
   ],
   providers: [],

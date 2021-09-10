@@ -4,7 +4,7 @@
       <div class="col-md-8">
         <div class="card">
           <div class="card-header card-header-danger">
-            <h4 class="card-title">Client Verification</h4>
+            <h4 class="card-title">Owner Verification</h4>
             <p class="card-category">
               Fill the form with your infos to get verified:
             </p>
@@ -54,21 +54,20 @@
                   </mat-form-field>
                 </div>
               </div>
-
-              <!-- <div class="form-group">
-      
-                                            <div class="form-group">
-                                                <label class="bmd-label-floating"> Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</label>
-                                                <textarea class="form-control" rows="5"></textarea>
-                                            </div>
-                                        </div> -->
+              <div class="col-md-4">
+                <form-firebase-file
+                  [formControl]="controlFile"
+                  [config]="config"
+                >
+                </form-firebase-file>
+              </div>
 
               <button
                 mat-raised-button
                 type="submit"
                 class="btn btn-danger pull-right"
               >
-                Procced to upload files
+                Procced to get verified
               </button>
               <div class="clearfix"></div>
             </form>
