@@ -18,9 +18,17 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { PropertyInfosComponent } from './property-infos/property-infos.component';
+import { MatIconModule } from '@angular/material/icon';
+import { SigninComponent } from './signin/signin.component';
+import { RegisterComponent } from './register/register.component';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
 
 @NgModule({
   imports: [
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
@@ -28,20 +36,15 @@ import { SignInComponent } from './sign-in/sign-in.component';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    NgxAuthFirebaseUIModule.forRoot({
-      apiKey: 'AIzaSyAt0NWnRg8NE1xRD6FJpvr9Ul8tf_LLr-w',
-      authDomain: 'smarthome-45590.firebaseapp.com',
-      databaseURL: 'https://smarthome-45590-default-rtdb.europe-west1.firebasedatabase.app',
-      projectId: 'smarthome-45590',
-      storageBucket: 'smarthome-45590.appspot.com',
-      messagingSenderId: '1028100313929'
-  }),
+    MatIconModule,
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     SignInComponent,
-
+    PropertyInfosComponent,
+    SigninComponent,
+    RegisterComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
-
+import { CrudService } from '../services/crud.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  selectionPlatform = [{homeLocation : "tunis" , homeSurface:"300m2" , homeImg:"image.jpg " , bedroomNum:"3" , homeImage:"/assets/house1.jpg"},{homeLocation : "tunis" , homeSurface:"300m2" , homeImg:"image.jpg ", bedroomNum:"3" , homeImage:"/assets/house1.jpg"}, {homeLocation : "tunis" , homeSurface:"300m2" , homeImg:"image.jpg ", bedroomNum:"3" , homeImage:"/assets/house1.jpg"}  ];
+  constructor(public _crudService: CrudService) { }
+  proprities : any[];
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -66,8 +67,18 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
-      /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
+      /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
+      this._crudService.getAllProperties().subscribe(
+        res => {
+         
+          this.proprities = res;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+      console.log( this.proprities )
       const dataDailySalesChart: any = {
           labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
           series: [
